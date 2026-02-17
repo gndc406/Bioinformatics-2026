@@ -1,0 +1,20 @@
+
+1) head -n 1 pandas.tsv >> panda_zoos.txt; tail -n +2 pandas.tsv | sed -n '/zoo/Ip' >> panda_zoos.txt
+
+2) grep -v "sex" pandas.tsv | sort -k2,2 | awk '{print 1,4,2}' >> sorted_pandas.txt
+
+3) grep -v "location" pandas.tsv | cut -f5 | sort >> panda_zoos_A2Z.txt
+
+4) sed 's/female/F/Ip' pandas.tsv | sed 's/male/M/Ip' >> panda_m_f.txt
+
+5) grep -i "October" pandas.tsv | grep -c -i "Fem"
+
+6) head -n 1 pandas.tsv > panda_names.txt ; tail -n +2 pandas.tsv | grep -n "^" >> panda_names.txt
+
+7) sed -n '1p; 6p; 17p' pandas.tsv > lines_1_6_17.txt
+
+8) grep -i "x" pandas.tsv > x_lines.txt
+
+9) awk -F'\t' 'BEGIN {OFS="\t"} {print 5 }' pandas.tsv > holding.tsv; head -n 1 holding.tsv > temp.tsv; tail -n +2 holding.tsv | sort | uniq -u >> temp.tsv; mv temp.tsv unique_places.txt; rm holding.tsv
+
+10) awk -F'\t' -v OFS='\t' '4 <= 10 {print 1, 4}' pandas.tsv | sort -n -k2 > young_pandas.txt
